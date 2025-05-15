@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>선택 결과</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fffef0;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #2c3e50;
+    }
+    .image-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    img {
+      width: 300px;
+      border-radius: 15px;
+      display: none;
+    }
+    .recipe-label {
+      margin-top: 20px;
+      font-size: 1.3em;
+      color: #444;
+    }
+    .back-btn {
+      margin-top: 40px;
+      padding: 10px 25px;
+      font-size: 1em;
+      background-color: #777;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    footer {
+      margin-top: 50px;
+      font-size: 0.9em;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="result">결과 불러오는 중...</h1>
+
+  <div class="image-container">
+    <img id="riceImage" src="음식 사진/ck.jpg" alt="치킨밥 이미지">
+  </div>
+
+  <p class="recipe-label">레시피 있는 공간</p>
+
+  <button class="back-btn" onclick="goBack()">뒤로가기</button>
+
+  <footer>한양대 인터칼리지학과 G19</footer>
+
+  <script>
+    const ingredient = localStorage.getItem('selectedIngredient') || '';
+    let result = "치킨";
+
+    if (ingredient === '우유') {
+      result += "우유";
+    } else if (ingredient === '계란') {
+      result += " 계란";
+    } else if (ingredient === '쌀') {
+      result += " 쌀";
+      document.getElementById('riceImage').style.display = 'block';
+    } else if (ingredient === '면') {
+      result += "면";
+    } else if (ingredient === '김치') {
+      result += " 김치";
+    } else {
+      result += " (선택된 재료 없음)";
+    }
+
+    document.getElementById('result').textContent = result;
+
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+</body>
+</html>
