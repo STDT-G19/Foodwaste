@@ -8,28 +8,31 @@
   <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
 </head>
 <body>
-<<<<<<< HEAD
   <header>
     <h1>🍽️ FOODWASTE 레스토랑</h1>
     <p>오늘의 메인 요리: <strong>치킨</strong></p>
   </header>
-=======
-  <h1>FOODWASTE - 치킨</h1>
-  <img src="음식 사진/chiken.webp" alt="치킨 이미지">
-  <p><strong>같이 먹을 재료는 무엇인가요??:</strong></p>
-  <p>치킨과 같이 먹을 원재료를 골라주세요 (하나만)</p>
->>>>>>> aaffb997cb2bb503d64a1ea2eb1497af236f79c1
 
   <section class="menu-section">
-    <img src="이미지/chicken.png" alt="치킨 이미지" class="main-img" />
+    <img src="food_picture/chicken.jpg" alt="치킨 이미지" class="main-img" />
     <p class="sub-text">치킨과 함께 곁들이고 싶은 재료를 하나 선택해주세요 🍗</p>
 
     <div class="ingredients">
-      <div class="ingredient" onclick="selectIngredient('우유')"><img src="이미지/milk.png">우유</div>
-      <div class="ingredient" onclick="selectIngredient('계란')"><img src="이미지/egg.png">계란</div>
-      <div class="ingredient" onclick="selectIngredient('쌀')"><img src="이미지/rice.png">쌀</div>
-      <div class="ingredient" onclick="selectIngredient('면')"><img src="이미지/noodles.png">면</div>
-      <div class="ingredient" onclick="selectIngredient('김치')"><img src="이미지/kimchi.png">김치</div>
+      <div class="ingredient" onclick="selectIngredient('우유')">
+        <img src="food_picture/milk.jpg" alt="우유"><p>우유</p>
+      </div>
+      <div class="ingredient" onclick="selectIngredient('계란')">
+        <img src="food_picture/egg.jpg" alt="계란"><p>계란</p>
+      </div>
+      <div class="ingredient" onclick="selectIngredient('쌀')">
+        <img src="food_picture/rice.jpg" alt="쌀"><p>쌀</p>
+      </div>
+      <div class="ingredient" onclick="selectIngredient('면')">
+        <img src="food_picture/noodle.jpg" alt="면"><p>면</p>
+      </div>
+      <div class="ingredient" onclick="selectIngredient('김치')">
+        <img src="food_picture/kimchi.jpg" alt="김치"><p>김치</p>
+      </div>
     </div>
 
     <button class="next-btn" onclick="goToNextPage()">다음으로</button>
@@ -50,7 +53,7 @@
 
     function goToNextPage() {
       localStorage.setItem('selectedIngredient', selectedIngredient);
-      window.location.href = "next.html"; // 각 메뉴별 결과 페이지로 연결
+      window.location.href = "next.html";
     }
   </script>
 </body>

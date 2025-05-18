@@ -1,56 +1,74 @@
 body {
   font-family: 'Nanum Myeongjo', serif;
-  background-color: #fffaf4;
+  background-color: #fffaf0;
   margin: 0;
   padding: 0;
   text-align: center;
   color: #2c3e50;
 }
+
 header {
   background-color: #f6e9dc;
   padding: 30px 0;
 }
+
 h1 {
   font-size: 2.2em;
   margin-bottom: 5px;
 }
+
 .menu-section {
   padding: 30px;
 }
+
 .main-img {
-  width: 250px;
+  max-width: 300px;
+  height: auto;
   border-radius: 20px;
   margin: 15px 0;
 }
+
 .sub-text {
   font-size: 1.1em;
   margin-bottom: 20px;
 }
+
 .ingredients {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 20px;
   margin: 20px 0;
 }
+
 .ingredient {
   border: 2px solid #ddd;
   border-radius: 15px;
-  padding: 12px 20px;
+  padding: 15px 20px;
   background: #fff;
   cursor: pointer;
   font-size: 1em;
+  width: 130px;
   transition: 0.3s;
 }
-.ingredient img {
-  width: 30px;
-  vertical-align: middle;
-  margin-right: 8px;
+
+.ingredient:hover {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
+
 .ingredient.selected {
   border-color: #f39c12;
-  background: #fff5e0;
+  background: #fff7e0;
 }
+
+.ingredient img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
+
 .next-btn {
   display: none;
   padding: 12px 25px;
@@ -62,6 +80,7 @@ h1 {
   cursor: pointer;
   margin-top: 20px;
 }
+
 footer {
   margin-top: 50px;
   padding: 20px;
