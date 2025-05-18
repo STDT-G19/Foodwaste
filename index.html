@@ -1,98 +1,49 @@
-<!-- G19.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FOODWASTE</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-      margin: 0;
-      padding: 20px;
-      text-align: center;
-    }
-    h1 {
-      color: #2c3e50;
-    }
-    img {
-      width: 300px;
-      border-radius: 10px;
-      margin: 20px 0;
-    }
-    .ingredients {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .ingredient {
-      background-color: #fff;
-      padding: 15px 25px;
-      border: 2px solid #ddd;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 1.2em;
-      transition: 0.2s;
-    }
-    .ingredient.selected {
-      border-color: #2ecc71;
-      background-color: #dfffe0;
-    }
-    .next-btn {
-      margin-top: 30px;
-      padding: 10px 25px;
-      font-size: 1.2em;
-      background-color: #3498db;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      display: none;
-    }
-    footer {
-      margin-top: 50px;
-      font-size: 0.9em;
-      color: #555;
-    }
-  </style>
+  <title>FOODWASTE - 치킨 메뉴</title>
+  <link href="style.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>FOODWASTE - 치킨</h1>
-  <img src="음식 사진/chiken.webp" alt="치킨 이미지">
-  <p><strong>같이 먹을 재료는 무엇인가요?:</strong></p>
-  <p>치킨과 같이 먹을 원재료를 골라주세요 (하나만)</p>
+  <header>
+    <h1>🍽️ FOODWASTE 레스토랑</h1>
+    <p>오늘의 메인 요리: <strong>치킨</strong></p>
+  </header>
 
-  <div class="ingredients">
-    <div class="ingredient">우유</div>
-    <div class="ingredient">계란</div>
-    <div class="ingredient">쌀</div>
-    <div class="ingredient">면</div>
-    <div class="ingredient">김치</div>
-  </div>
+  <section class="menu-section">
+    <img src="이미지/chicken.png" alt="치킨 이미지" class="main-img" />
+    <p class="sub-text">치킨과 함께 곁들이고 싶은 재료를 하나 선택해주세요 🍗</p>
 
-  <button class="next-btn" onclick="goToNextPage()">다음으로</button>
+    <div class="ingredients">
+      <div class="ingredient" onclick="selectIngredient('우유')"><img src="이미지/milk.png">우유</div>
+      <div class="ingredient" onclick="selectIngredient('계란')"><img src="이미지/egg.png">계란</div>
+      <div class="ingredient" onclick="selectIngredient('쌀')"><img src="이미지/rice.png">쌀</div>
+      <div class="ingredient" onclick="selectIngredient('면')"><img src="이미지/noodles.png">면</div>
+      <div class="ingredient" onclick="selectIngredient('김치')"><img src="이미지/kimchi.png">김치</div>
+    </div>
 
-  <footer>한양대 인터칼리지학과 G19</footer>
+    <button class="next-btn" onclick="goToNextPage()">다음으로</button>
+  </section>
+
+  <footer>한양대 인터칼리지학과 G19 | FOODWASTE 프로젝트</footer>
 
   <script>
-    const ingredients = document.querySelectorAll('.ingredient');
-    const nextBtn = document.querySelector('.next-btn');
-    let selectedText = "";
+    let selectedIngredient = "";
 
-    ingredients.forEach(item => {
-      item.addEventListener('click', () => {
-        ingredients.forEach(i => i.classList.remove('selected'));
-        item.classList.add('selected');
-        selectedText = item.textContent.trim();
-        nextBtn.style.display = 'inline-block';
-      });
-    });
+    function selectIngredient(ingredient) {
+      document.querySelectorAll('.ingredient').forEach(el => el.classList.remove('selected'));
+      const selected = Array.from(document.querySelectorAll('.ingredient')).find(el => el.textContent.includes(ingredient));
+      selected.classList.add('selected');
+      selectedIngredient = ingredient;
+      document.querySelector('.next-btn').style.display = 'inline-block';
+    }
 
     function goToNextPage() {
-      localStorage.setItem('selectedIngredient', selectedText);
-      window.location.href = 'next.html';
+      localStorage.setItem('selectedIngredient', selectedIngredient);
+      window.location.href = "next.html"; // 각 메뉴별 결과 페이지로 연결
     }
   </script>
 </body>
